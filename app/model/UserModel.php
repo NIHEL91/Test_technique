@@ -11,21 +11,22 @@ class UserModel
 /***********************Vérification **********/
     public function verifUser(): void
     {
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
         $login = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
+        var_dump($login);
+        var_dump($password);
         if ($login) {
 
             $dao = new Dao();
             $user = $dao->getUserByLogin($login); // leve une Exception si user non trouvé
-
+var_dump($user);
             if (password_verify($password, $user->getPassword())) {    // simulation de la valeur de mot de passe
 
                 $_SESSION['email'] = $user->getEmail();
-
                 $_SESSION['role'] = $user->getRole();
 
                 $_SESSION['lastname'] = $user->getLastname();
+
             } else {
                 throw new Exception('Mot de passe incorrect !');
             }

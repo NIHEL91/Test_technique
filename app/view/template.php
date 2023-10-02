@@ -33,13 +33,6 @@
 </head>
 
 <body class="app sidebar-mini ltr light-mode">
-
-    <!-- GLOBAL-LOADER -->
-    <div id="global-loader">
-        <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
-    </div>
-    <!-- /GLOBAL-LOADER -->
-
     <!-- PAGE -->
     <div class="page">
         <div class="page-main">
@@ -78,23 +71,35 @@
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <div class="drop-heading">
                                                     <div class="text-center">
-                                                        <h5 class="text-dark mb-0 fs-14 fw-semibold">php</h5>
-                                                        <small class="text-muted">user/ Admin php </small>
+                                                        <?php if (isset($_SESSION['lastname'])) { ?>
+                                                            <h5 class="text-dark mb-0 fs-14 fw-semibold">Bonjour : <?php echo $_SESSION['lastname']; ?></h5>
+                                                            <span>
+                                                                <a href="index.php?entite=users&action=logout" class="dropdown-item">
+                                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Déconnexion
+                                                                </a>
+                                                            </span>
+                                                            <?php if ($_SESSION['role'] == 'admin') { ?>
+                                                                <h5 class="text-dark mb-0 fs-14 fw-semibold">Admin</h5>
+                                                            <?php } ?>
+                                                        <?php } else { ?>
+                                                            <span>Déjà abonné :
+                                                                <a href="index.php?entite=users&action=connect" class="btn btn-green btn-sm  mr-3">Connexion</a>
+                                                            </span>
+                                                            <br><br>
+                                                            <span>
+                                                                <a href="index.php?entite=users&action=createUser" class="btn btn-warning btn-sm">Créer un compte</a>
+                                                            </span>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                                 <div class="dropdown-divider m-0"></div>
                                                 <a class="dropdown-item" href="profile.html">
                                                     <i class="dropdown-icon fe fe-user"></i> Profil
                                                 </a>
-                                                <a class="dropdown-item" href="email-inbox.html">
-                                                    <i class="dropdown-icon fe fe-mail"></i> articles acheté (php)
-                                                    <span class="badge bg-danger rounded-pill float-end">nbr d'article acheté (ph)</span>
-                                                </a>
-                                               
-                                                <a class="dropdown-item" href="login.html">
-                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Déconnexion
-                                                </a>
+                                                <h5 class="text-dark mb-0 fs-14 fw-semibold">php</h5>
+                                                <small class="text-muted"><?php echo ($_SESSION['role'] == 'admin') ? 'Admin' : 'User'; ?> php</small>
                                             </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>

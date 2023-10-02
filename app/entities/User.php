@@ -21,7 +21,7 @@ class User {
 
 
     public function __construct(  string $firstname ='', string $lastname = '' ,string $email = '',string $password = '' ,  string $role = ''    , int $phone = 0
-    , string $adress = '' , ?string $registerdate = null ,int  $abonne) {
+    , string $adress = '' , ?string $registerdate = null ,int  $abonne  = 0) {
  
         $this->idUser = null; 
         $this->firstname = $firstname;
