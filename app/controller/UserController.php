@@ -21,10 +21,12 @@ class UserController extends Controller
             // appel de la fonction de vérification des données de connexion
             $model = new UserModel();
             $model->verifUser();
+
             header('Location: index.php');
             // demande de redirection au navigateur
             exit();
         } catch (\Exception $err) {
+            var_dump('fonctionne');
             // erreur d'authentification
             $paramView = ['error' => $err->getMessage()];
             $this->createView('user/connect', $paramView);

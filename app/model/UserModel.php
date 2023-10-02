@@ -13,23 +13,22 @@ class UserModel
     {
         $login = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
-        var_dump($login);
+        
         var_dump($password);
         if ($login) {
 
             $dao = new Dao();
+        
             $user = $dao->getUserByLogin($login); // leve une Exception si user non trouvé
-var_dump($user);
             if (password_verify($password, $user->getPassword())) {    // simulation de la valeur de mot de passe
-
                 $_SESSION['email'] = $user->getEmail();
                 $_SESSION['role'] = $user->getRole();
-
                 $_SESSION['lastname'] = $user->getLastname();
-
             } else {
                 throw new Exception('Mot de passe incorrect !');
+                
             }
+            
         } else {
             throw new Exception('le login doit être un mail valide');
         }
@@ -43,7 +42,6 @@ var_dump($user);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
         $password = password_hash($password, PASSWORD_DEFAULT);
-
         $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_SPECIAL_CHARS);
         $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS);
         $adress = filter_input(INPUT_POST, 'adress', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -61,12 +59,7 @@ var_dump($user);
         } catch (\PDOException $e) {
             throw new Exception("Error inserting user: " . $e->getMessage());
         }
-        try {
-            // exécution de la requête d'insertion ici
-        } catch (\PDOException $e) {
-            // gestion des erreurs ici, par exemple :
-            echo "Erreur d'insertion : " . $e->getMessage();
-        }
+       
     }
 
 
