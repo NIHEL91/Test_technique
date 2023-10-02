@@ -1,9 +1,9 @@
 {
-    "name": "blog/ess",
+    "name": "ess/app",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Blog\\Ess\\": "src/"
+            "Ess\\App\\": "app/"
         }
     },
     "authors": [
