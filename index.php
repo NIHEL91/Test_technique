@@ -1,16 +1,11 @@
 <?php
 require 'vendor/autoload.php';
-
+use Ess\App\controller\ArticlesController;
 use Ess\App\controller\UserController;
 use Ess\App\controller\AppController;
+use Ess\App\entities\Article;
 
-
-        
-
-
-            session_start();
-
-
+session_start();
 
             if (!isset($_SESSION['role'])) {
                 $_SESSION['role'] = 'visiteur';
@@ -26,7 +21,10 @@ use Ess\App\controller\AppController;
                         $controller = new UserController();
                         $controller->execute($action);
                         break;
-            
+                    case 'article':
+                        $controller = new ArticlesController();
+                        $controller->execute($action);
+
                     default:
                         $controller = new AppController();
                         $controller->execute('accueil');

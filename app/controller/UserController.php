@@ -26,12 +26,10 @@ class UserController extends Controller
             // demande de redirection au navigateur
             exit();
         } catch (\Exception $err) {
-            var_dump('fonctionne');
             // erreur d'authentification
             $paramView = ['error' => $err->getMessage()];
             $this->createView('user/connect', $paramView);
         }
-        var_dump("sortie de la méthode verif");
     }
 /***********************************Création de compte**************** */
     public function  createUser()

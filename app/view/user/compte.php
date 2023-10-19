@@ -1,5 +1,5 @@
 <link href="../css/formulaire.css" rel="stylesheet" type="text/css" />
-<div class="container mt-5">
+<div class="container m-9">
     <form name="compte" method="POST" action="index.php?entite=users&action=createUser">
         <fieldset>
             <div class="form_group">

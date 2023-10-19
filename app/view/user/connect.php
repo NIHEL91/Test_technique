@@ -1,6 +1,6 @@
 
 <link href="../css/formulaire.css" rel="stylesheet" type="text/css" />
-<div class="container mt-5">
+<div class="container mt-9">
 
   <form method="post" action="index.php?entite=users&action=verif">
     <?php if ($error) : ?><!-- si erreur : test d'une variable d'erreur -->
@@ -9,7 +9,7 @@
     <fieldset>
       <legend>Connectez-vous</legend>
 
-      <div class="form-group">
+      <div class="form-group mt-4">
         <label for="email" class="form-label form-label-sm" id="email">Email *</label>
         <input type="email" name="email" class="form-control form-control-sm" id="email" placeholder="pierre.giraud@edhec.com">
       </div>
