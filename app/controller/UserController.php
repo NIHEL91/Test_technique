@@ -15,7 +15,6 @@ class UserController extends Controller
 
     public function verif()
     {
-        var_dump("Entrée dans la méthode verif");
         // vérification du formaulaire de login
         try {
             // appel de la fonction de vérification des données de connexion

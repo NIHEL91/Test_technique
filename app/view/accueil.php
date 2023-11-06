@@ -29,7 +29,14 @@
                             </div>
                         </div>
                         <!---------/admin---------->
-                     
+                        <div class="col-md-6 col-xl-4 col-sm-6">
+                            <div class="card">
+                                        
+                            </div> 
+                        </div>
+
+
+
                         <!--pagination-->
                         <div class="mb-5">
                             <div class="float-end">

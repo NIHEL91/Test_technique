@@ -8,12 +8,14 @@ class ArticlesController extends Controller
 {
 
    /*************Liste des produits************** */
-    public function listArticle()
+    public function affichageArticle()
+
+
     {
         $model = new ArticleModel();
-        $article = $model->listArticle();
-        $view = 'articles/listarticles';
-        $paramView = ['article' => $article,];
+        $articles = $model->listArticle();
+        $view = 'articles/listArticles';
+        $paramView = ['articles' => $articles];
         $this->createView($view, $paramView);
     }
 

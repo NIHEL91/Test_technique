@@ -9,6 +9,7 @@ use Ess\App\entities\User;
 use Ess\App\model\UserModel;
 use Ess\App\model\ArticleModel;
 class Dao {
+    
     private ?PDO $dbconnect;
     public function __construct()
     {
@@ -62,12 +63,15 @@ class Dao {
     }
     public function getArticleById(int $idArticle): Article
     {
-        var_dump($idArticle);
 
         $sql = 'SELECT * FROM article WHERE idArticle=:idArticle';
+        var_dump( $idArticle);
+
         $article_statement = $this->dbconnect->prepare($sql);
+        
         $article_statement->bindParam(':idArticle', $idArticle);
         $article_statement->execute();
+       
 
         $article_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Ess\App\entities\Article');
         $art =  $article_statement->fetch();

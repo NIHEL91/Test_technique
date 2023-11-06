@@ -32,10 +32,10 @@
     <link href="../assets/switcher/demo.css" rel="stylesheet">
 </head>
 
-<body class="app sidebar-mini ltr light-mode">
+<body class="app sidebar-mini ltr light-mode ">
     <!-- PAGE -->
-    <div class="page">
-        <div class="page-main mb-6">
+    <div class="page ">
+        <div class="page-main mb-4 ">
 
             <!-- app-Header -->
             <div class="app-header header sticky">
@@ -153,7 +153,7 @@
                         </a>
                         <!-- LOGO -->
                     </div>
-                    <div class="main-sidemenu">
+                    <div class="main-sidemenu ">
                       
                         <ul class="side-menu">
                           
